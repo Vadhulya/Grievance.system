@@ -1,0 +1,11 @@
+text,label
+"There is no electricity in my area",Electricity
+"Power cut for 5 hours",Electricity
+"Water supply is not working",Water
+"Water leakage from pipeline",Water
+"Garbage is not collected",Sanitation
+"Sewage overflow in street",Sanitation
+"Road is damaged with potholes",Roads
+"Broken road near school",Roads
+"Street light not working",Public Services
+"Public toilet is dirty",Public Services
