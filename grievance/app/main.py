@@ -7,4 +7,4 @@ app.include_router(complaint.router, prefix="/complaints")
 
 @app.get("/")
 def root():
-    return {"message": "Grievance AI Backend Running 🚀"}
+    return {"message": "Grievance AI Backend Running"}
