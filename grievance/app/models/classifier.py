@@ -1,6 +1,7 @@
 from transformers import pipeline
 import torch
-from app.core.config import LABELS
+import json
+import math
 
 device = 0 if torch.cuda.is_available() else -1
 
@@ -12,20 +13,24 @@ classifier = pipeline(
     device=device
 )
 
+with open("model/labels.json", "r") as f:
+    LABELS = json.load(f)
+
 print("Model loaded")
 
-LABELS = [
-    "Electricity",
-    "Water",
-    "Sanitation",
-    "Roads",
-    "Public Services"
-]
-
 def classify(text: str):
+
     result = classifier(text)[0]
 
+    label_index = int(result["label"].split("_")[-1])
+
+    confidence = float(result["score"])
+
+    # Fix invalid float values
+    if math.isnan(confidence) or math.isinf(confidence):
+        confidence = 0.0
+
     return {
-        "department": LABELS[int(result["label"].split("_")[-1])],
-        "confidence": float(result["score"])
+        "department": LABELS[label_index],
+        "confidence": confidence
     }
