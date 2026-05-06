@@ -1,1 +1,3 @@
 Refine data for better results
+Set Priority for a hybrid approach
+new dataset for better training (manual)
