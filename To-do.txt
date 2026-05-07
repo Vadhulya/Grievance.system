@@ -1,3 +1,5 @@
 Refine data for better results
 Set Priority for a hybrid approach
 new dataset for better training (manual)
+training - python app/models/train_classifier.py
+running backend - python -m uvicorn app.main:app --reload
